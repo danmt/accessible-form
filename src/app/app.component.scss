@@ -49,4 +49,15 @@
   &-group {
     margin: 1rem 0;
   }
+
+  &-errors {
+    &-list {
+      margin-bottom: 0;
+    }
+
+    &.active {
+      border: 1px solid black;
+      padding: 1rem;
+    }
+  }
 }

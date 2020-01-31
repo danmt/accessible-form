@@ -10,6 +10,32 @@
       <p class="form-subtitle">Please fill the form</p>
     </header>
 
+    <div
+      class="form-errors"
+      #errorsSection
+      tabindex="-1"
+      [ngClass]="{ active: submitted && errors }"
+    >
+      <ng-container *ngIf="submitted && errors">
+        There were errors found in the form.
+
+        <ul class="form-errors-list" *ngIf="errors">
+          <li *ngIf="errors.firstName?.required">
+            <a href="#first-name-control">First name is required</a>
+          </li>
+          <li *ngIf="errors.lastName?.required">
+            <a href="#last-name-control">Last name is required</a>
+          </li>
+          <li *ngIf="errors.email?.required">
+            <a href="#email-control">Email is required</a>
+          </li>
+          <li *ngIf="errors.email?.email">
+            <a href="#email-control">Email has to be properly formatted</a>
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+
     <fieldset class="form-group">
       <label class="form-control">
         <span class="form-control-title">First Name: *</span>
